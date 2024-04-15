@@ -5,9 +5,9 @@ public class BankAccount
 {
     private string accountName;
     private int accountNumber;
-    private double balance;
+    private decimal balance;
 
-    public BankAccount(string name, int number, double initialDeposit)
+    public BankAccount(string name, int number, decimal initialDeposit)
     {
         accountName = name;
         accountNumber = number;
@@ -32,13 +32,13 @@ public class BankAccount
             if (userInput == "1")
             {
                 Console.Write("\nEnter deposit amount: ");
-                double amount = Convert.ToDouble(Console.ReadLine());
+                decimal amount = Convert.ToDecimal(Console.ReadLine());
                 Deposit(amount);
             }
             else if (userInput == "2")
             {
                 Console.Write("\nEnter withdrawal amount: ");
-                double amount = Convert.ToDouble(Console.ReadLine());
+                decimal amount = Convert.ToDecimal(Console.ReadLine());
                 Withdraw(amount);
             }
             else if (userInput == "3")
@@ -60,10 +60,10 @@ public class BankAccount
 
     // Task 3: Recording Transactions
 
-    private double[] transactionHistory = new double[10];
+    private decimal[] transactionHistory = new decimal[10];
     private int transactionCount = 0;
 
-    private void RecordTransaction(double amount)
+    private void RecordTransaction(decimal amount)
     {
         if (transactionCount < transactionHistory.Length)
         {
@@ -76,14 +76,14 @@ public class BankAccount
     }
 
     // Task 4: Performing Calculations
-    public void Deposit(double amount)
+    public void Deposit(decimal amount)
     {
         balance += amount;
         RecordTransaction(amount);
         Console.WriteLine("\nDeposit successful.\n");
     }
 
-    public void Withdraw(double amount)
+    public void Withdraw(decimal amount)
     {
         if (amount <= balance)
         {
@@ -97,7 +97,7 @@ public class BankAccount
         }
     }
 
-    public double GetBalance()
+    public decimal GetBalance()
     {
         return balance;
     }

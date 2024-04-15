@@ -14,7 +14,7 @@ class Program
         int accountNumber = Convert.ToInt32(Console.ReadLine());
 
         Console.Write("Enter your initial deposit: ");
-        double initialDeposit = Convert.ToDouble(Console.ReadLine());
+        decimal initialDeposit = Convert.ToDecimal(Console.ReadLine());
 
         BankAccount account = new BankAccount(name, accountNumber, initialDeposit);
         Console.WriteLine("\nAccount setup successful!\n");
